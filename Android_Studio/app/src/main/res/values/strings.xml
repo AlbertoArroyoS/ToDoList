@@ -3,4 +3,9 @@
     <string name="hintCorreo">email</string>
     <string name="hintPass">password</string>
     <string name="login">LOGIN</string>
+    <string name="mas">Más</string>
+    <string name="logout">Logout</string>
+    <string name="mis_tareas">MIS TAREAS</string>
+    <string name="done">Done</string>
+    <string name="edit">Edit</string>
 </resources>
