@@ -160,4 +160,46 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //metodo para modificar una tarea
+    public void modificarTarea(android.view.View view){
+
+        android.view.View parent = (View) view.getParent();
+        TextView tareaTextView = parent.findViewById(R.id.textViewTarea);
+        String tarea = tareaTextView.getText().toString();
+        int posicion = listaTareas.indexOf(tarea);
+
+        final EditText taskEditext = new EditText(this);
+        taskEditext.setText(tarea);
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Modificar Tarea")
+                .setMessage("Que quieres hacer a continuación")
+                .setView(taskEditext)
+                .setPositiveButton("Modificar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //añadir la tarea a la base de dato
+                        String tarea = taskEditext.getText().toString();
+                        Map<String, Object> miTarea = new HashMap<>();
+                        miTarea.put("nombreTarea", tarea);
+                        miTarea.put("idUsuario", idUser);
+
+
+                        //Añadir un nuevo documento con el id generado
+                      //  miBaseDatos.collection("Tareas").document(listaIdTareas.get(posicion)).delete();
+                        miBaseDatos.collection("Tareas").document(listaIdTareas.get(posicion)).update(miTarea);
+                      //  miBaseDatos.collection("Tareas").add(miTarea);
+                        Toast.makeText(MainActivity.this, "Tarea modificada", Toast.LENGTH_LONG).show();
+
+                    }
+                })
+                .setNegativeButton("Cancelar", null)
+                .create();
+        //activar el cuadro de dialogo para añadir tarea
+
+        dialog.show();
+       // return true;
+    }
+
+
 }
