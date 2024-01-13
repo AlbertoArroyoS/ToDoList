@@ -13,13 +13,19 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
-    Toolbar toolbar;
+
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //getSupportActionBar().show();
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
     }
     //Para que aparezca el menu
     @Override
@@ -54,9 +60,10 @@ public class MainActivity extends AppCompatActivity {
         }
         if (item.getItemId()==R.id.logout){
             //cierre de sesion
-
+            mAuth.signOut();
             //pasar al login al cerrar sesion
             startActivity(new Intent(MainActivity.this, Login.class));
+            finish();
             return true;
         }
         else{
