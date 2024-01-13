@@ -10,9 +10,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -144,6 +146,17 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+    }
+    //metodo para borrar la tareas al darle al boton done
+    public void borrarTarea(android.view.View view){
+
+        android.view.View parent = (View) view.getParent();
+        TextView tareaTextView = parent.findViewById(R.id.textViewTarea);
+        String tarea = tareaTextView.getText().toString();
+        int posicion = listaTareas.indexOf(tarea);
+
+        miBaseDatos.collection("Tareas").document(listaIdTareas.get(posicion)).delete();
 
     }
 
