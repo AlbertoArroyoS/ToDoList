@@ -184,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
                         miTarea.put("nombreTarea", tarea);
                         miTarea.put("idUsuario", idUser);
 
-
                         //Añadir un nuevo documento con el id generado
                       //  miBaseDatos.collection("Tareas").document(listaIdTareas.get(posicion)).delete();
                         miBaseDatos.collection("Tareas").document(listaIdTareas.get(posicion)).update(miTarea);
