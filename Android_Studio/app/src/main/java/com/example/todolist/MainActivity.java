@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -84,14 +85,19 @@ public class MainActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             //añadir la tarea a la base de datos
                             String tarea = taskEditext.getText().toString();
-                            Map<String, Object> miTarea = new HashMap<>();
-                            miTarea.put("nombreTarea", tarea);
-                            miTarea.put("idUsuario", idUser);
+                            // Validar que la tarea no esté vacía
+                            if (!TextUtils.isEmpty(tarea)) {
+                                // Añadir la tarea a la base de datos
+                                Map<String, Object> miTarea = new HashMap<>();
+                                miTarea.put("nombreTarea", tarea);
+                                miTarea.put("idUsuario", idUser);
 
-                            //Añadir un nuevo documento con el id generado
-                            miBaseDatos.collection("Tareas").add(miTarea);
-                            Toast.makeText(MainActivity.this, "Tarea añadida", Toast.LENGTH_LONG).show();
-
+                                // Añadir un nuevo documento con el id generado
+                                miBaseDatos.collection("Tareas").add(miTarea);
+                                Toast.makeText(MainActivity.this, "Tarea añadida", Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(MainActivity.this, "La tarea no puede estar vacía", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     })
                     .setNegativeButton("Cancelar", null)
@@ -178,18 +184,22 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Modificar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //añadir la tarea a la base de dato
-                        String tarea = taskEditext.getText().toString();
-                        Map<String, Object> miTarea = new HashMap<>();
-                        miTarea.put("nombreTarea", tarea);
-                        miTarea.put("idUsuario", idUser);
+                        // Obtener la tarea modificada
+                        String nuevaTarea = taskEditext.getText().toString().trim();
 
-                        //Añadir un nuevo documento con el id generado
-                      //  miBaseDatos.collection("Tareas").document(listaIdTareas.get(posicion)).delete();
-                        miBaseDatos.collection("Tareas").document(listaIdTareas.get(posicion)).update(miTarea);
-                      //  miBaseDatos.collection("Tareas").add(miTarea);
-                        Toast.makeText(MainActivity.this, "Tarea modificada", Toast.LENGTH_LONG).show();
+                        // Validar que la tarea modificada no esté vacía
+                        if (!TextUtils.isEmpty(nuevaTarea)) {
+                            // Actualizar la tarea en la base de datos
+                            Map<String, Object> miTarea = new HashMap<>();
+                            miTarea.put("nombreTarea", nuevaTarea);
+                            miTarea.put("idUsuario", idUser);
 
+                            // Actualizar el documento con el id correspondiente
+                            miBaseDatos.collection("Tareas").document(listaIdTareas.get(posicion)).update(miTarea);
+                            Toast.makeText(MainActivity.this, "Tarea modificada", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, "La tarea no puede estar vacía", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
                 .setNegativeButton("Cancelar", null)
