@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">ToDoList</string>
-    <string name="hintCorreo">email</string>
-    <string name="hintPass">password</string>
+    <string name="hint_correo">email</string>
+    <string name="hint_pass">password</string>
     <string name="login">LOGIN</string>
     <string name="mas">Más</string>
     <string name="logout">Logout</string>
@@ -9,4 +9,10 @@
     <string name="done">Done</string>
     <string name="edit">Edit</string>
     <string name="crea_una_cuenta">Crea una cuenta</string>
+
+    <string name="error_password">Introduzca una contraseña</string>
+    <string name="error_short_password">La contraseña debe tener al menos 5 caracteres</string>
+    <string name="error_mail">Introduzca un email</string>
+    <string name="error_invalid_email">Correo electrónico no válido</string>
+
 </resources>

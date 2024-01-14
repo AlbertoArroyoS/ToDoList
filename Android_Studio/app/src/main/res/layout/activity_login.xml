@@ -17,7 +17,8 @@
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -33,14 +34,16 @@
             android:id="@+id/cajaCorreo"
             android:layout_width="325dp"
             android:layout_height="wrap_content"
-            android:hint="@string/hintCorreo"
+            android:hint="@string/hint_correo"
             android:textColorHint="@color/black"
-            android:backgroundTint="@color/white"/>
+            android:backgroundTint="@color/white"
+            android:textColor="@color/white"
+            />
         <requestFocus/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+        android:id="@+id/layoutPass"
         android:layout_width="325dp"
         android:layout_height="59dp"
         android:layout_marginTop="16dp"
@@ -53,9 +56,10 @@
             android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:hint="@string/hintPass"
+            android:hint="@string/hint_pass"
             android:inputType="textPassword"
-            android:textColorHint="@color/black" />/>
+            android:textColorHint="@color/white"
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -68,7 +72,7 @@
         app:cornerRadius="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutPass" />
 
     <TextView
         android:id="@+id/botonRegistro"
@@ -79,5 +83,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botonLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/botonLogin"
+        android:textColor="@color/white"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

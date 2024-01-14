@@ -3,6 +3,7 @@
     <style name="Base.Theme.ToDoList" parent="Theme.Material3.Light">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/morado2</item>
     </style>
 
     <style name="Theme.ToDoList" parent="Base.Theme.ToDoList" />

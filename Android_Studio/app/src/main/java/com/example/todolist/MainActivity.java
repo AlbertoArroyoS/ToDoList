@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> mAdapterTareas;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         idUser = mAuth.getCurrentUser().getUid();
 
         listViewTareas = findViewById(R.id.ListView);
+
 
         actualizarUI();
     }
