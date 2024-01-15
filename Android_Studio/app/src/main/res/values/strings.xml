@@ -14,5 +14,6 @@
     <string name="error_short_password">La contraseña debe tener al menos 5 caracteres</string>
     <string name="error_mail">Introduzca un email</string>
     <string name="error_invalid_email">Correo electrónico no válido</string>
+    <string name="default_web_client_id">836277393585-3lsd36dg3bhblusfugkvaudd84893jev.apps.googleusercontent.com</string>
 
 </resources>
