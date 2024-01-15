@@ -7,7 +7,7 @@
     <item
         android:id="@+id/mas"
         android:title="@string/mas"
-        android:icon="@mipmap/plus"
+        android:icon="@mipmap/agregar2"
         app:showAsAction="ifRoom"
 
         />
