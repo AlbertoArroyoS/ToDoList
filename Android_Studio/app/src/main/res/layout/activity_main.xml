@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:actionBarNavMode="standard"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/morado_claro2">
 
     <ListView
         android:id="@+id/ListView"

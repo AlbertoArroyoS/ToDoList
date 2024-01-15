@@ -6,4 +6,6 @@
     <color name="negro2">#000000</color>
     <color name="morado2">#6633EE</color>
     <color name="morado_claro">#E5D1FF</color>
+
+    <color name="morado_claro2">#EDDFFF</color>
 </resources>
