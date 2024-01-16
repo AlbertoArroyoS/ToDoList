@@ -12,10 +12,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.identity.SignInCredential;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,6 +31,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class Login extends AppCompatActivity {
     //variable para guardar los botones
     Button botonLogin;
+    SignInButton mSignInGoogle;
     TextView botonRegistro;
     private FirebaseAuth mAuth;
     //Variables para las cajas de usuario y contraseña
@@ -37,6 +40,8 @@ public class Login extends AppCompatActivity {
     //Google
     private static final int RC_SIGN_IN = 1;
     private GoogleSignInClient mGoogleSignInClient;
+    private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
+    private boolean showOneTapUI = true;
 
 
     @Override
@@ -56,6 +61,14 @@ public class Login extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        //Boton de google
+        mSignInGoogle = findViewById(R.id.botonGoogle);
+        mSignInGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
 
         //Referencias de las cajas
         emailText = findViewById(R.id.cajaCorreo);
@@ -187,6 +200,8 @@ public class Login extends AppCompatActivity {
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
     // [START onactivityresult]
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -201,10 +216,12 @@ public class Login extends AppCompatActivity {
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                Toast.makeText(Login.this, "Fallo en inicio de sesión.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Google Sign In failed, update UI appropriately.", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
+
 
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(String idToken) {

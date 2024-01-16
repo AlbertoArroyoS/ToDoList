@@ -20,6 +20,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -209,6 +210,19 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
        // return true;
     }
+    //metodo para verificar si la sesion esta activa o no
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if(user==null){
+            irLogin();
+        }
+    }
 
-
+    private void irLogin() {
+        Intent intent = new Intent(MainActivity.this,Login.class);
+        startActivity(intent);
+        finish();
+    }
 }
