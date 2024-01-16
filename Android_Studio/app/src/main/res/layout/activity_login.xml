@@ -85,4 +85,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonLogin"
         android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/botonGoogle"
+        android:layout_width="321dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="70dp"
+        android:text="INICIO CON CUENTA DE GOOGLE"
+        android:textSize="16sp"
+        app:cornerRadius="32sp"
+        app:icon="@drawable/google"
+        app:iconTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonRegistro" />
 </androidx.constraintlayout.widget.ConstraintLayout>
