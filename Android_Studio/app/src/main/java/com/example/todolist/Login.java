@@ -63,6 +63,8 @@ public class Login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         //Boton de google
         mSignInGoogle = findViewById(R.id.botonGoogle);
+        mSignInGoogle.setColorScheme(SignInButton.COLOR_LIGHT);
+        setGoogleButtonText(mSignInGoogle,"Acceder con cuenta de GOOGLE");
         mSignInGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -255,6 +257,20 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(Login.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    //cambiar texto boton de google
+    protected void setGoogleButtonText(SignInButton signInButton, String buttonText) {
+        // Encontrar el texto que esta dentro del boton
+        for (int i = 0; i < signInButton.getChildCount(); i++) {
+            View v = signInButton.getChildAt(i);
+
+            if (v instanceof TextView) {
+                TextView tv = (TextView) v;
+                tv.setText(buttonText);
+                return;
+            }
+        }
     }
 
 
