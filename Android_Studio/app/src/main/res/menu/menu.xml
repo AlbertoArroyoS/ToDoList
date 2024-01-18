@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity" >
 
+
     <item
         android:id="@+id/mas"
         android:title="@string/mas"
@@ -18,4 +19,5 @@
         android:icon="@mipmap/logout"
         app:showAsAction="ifRoom"
         />
+
 </menu>

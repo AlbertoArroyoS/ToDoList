@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         idUser = mAuth.getCurrentUser().getUid();
 
         listViewTareas = findViewById(R.id.ListView);
+        //Variable para el valor de usuario utilizado
+        String usuario = getIntent().getStringExtra("usuario");
+        Toast.makeText(MainActivity.this, "Bienvenido "+ usuario, Toast.LENGTH_SHORT).show();
 
 
         actualizarUI();

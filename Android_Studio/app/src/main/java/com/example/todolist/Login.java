@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -97,10 +98,12 @@ public class Login extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         // Sign in success, update UI with the signed-in user's information
                                         Intent intent = new Intent(Login.this, MainActivity.class);
+                                        //pasamos el valor del usuario a la barra de navegacion de la vista MainActivity
+                                        intent.putExtra("usuario",emailText.getText().toString());
                                         startActivity(intent);
                                     } else {
                                         // If sign in fails, display a message to the user.
-                                        Toast.makeText(Login.this, "Authentication failed.",
+                                        Toast.makeText(Login.this, "La autenticación falló.",
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -129,11 +132,14 @@ public class Login extends AppCompatActivity {
                                         //Si es correcto saco un toast y paso a la siguiente
                                         Toast.makeText(Login.this, "Usuario Registrado", Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(Login.this, MainActivity.class);
+                                        intent.putExtra("usuario",emailText.getText().toString());
                                         startActivity(intent);
                                     } else {
                                         // If sign in fails, display a message to the user.
-                                        Toast.makeText(Login.this, "Authentication failed.",
-                                                Toast.LENGTH_SHORT).show();
+
+                                        Toast toast = Toast.makeText(Login.this, "Fallo en el registro del usuario.", Toast.LENGTH_SHORT);
+                                        toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+                                        toast.show();
 
                                     }
                                 }
@@ -218,7 +224,7 @@ public class Login extends AppCompatActivity {
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                Toast.makeText(Login.this, "Google Sign In failed, update UI appropriately.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Fallo en inicio de sesión de Google.", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -239,7 +245,7 @@ public class Login extends AppCompatActivity {
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(Login.this, "Fallo en inicio de sesión.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Fallo en inicio de sesión de Google.", Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
                     }
@@ -255,6 +261,7 @@ public class Login extends AppCompatActivity {
 
     private void irMainActivity() {
         Intent intent = new Intent(Login.this, MainActivity.class);
+        intent.putExtra("usuario",emailText.getText().toString());
         startActivity(intent);
         finish();
     }
