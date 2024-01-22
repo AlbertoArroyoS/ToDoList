@@ -72,7 +72,6 @@ ToDoList
 
 ![Imagen](imgReadme/image19.png)
 
-![Imagen](imgReadme/image20.png)
 
 8.  Originalidad y creatividad: cambiar los estilos, paleta de colores,
     tipografías, uso de degradados, animaciones, sonidos, imágenes,
@@ -80,4 +79,4 @@ ToDoList
     tendrá en cuenta cualquier otra funcionalidad añadida a la
     aplicación (por ejemplo, login con RRSS, etc.).
 
-![Imagen](imgReadme/image21.png)
+![Imagen](imgReadme/image20.png)
