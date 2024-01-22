@@ -154,6 +154,7 @@ public class Login extends AppCompatActivity {
         String email = emailText.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
             emailLayout.setError(getString(R.string.error_mail));
+            emailText.setError("Campo obligatorio");
             emailLayout.requestFocus();
             Toast.makeText(Login.this, "Introduzca un email.", Toast.LENGTH_SHORT).show();
             return false;
@@ -167,12 +168,14 @@ public class Login extends AppCompatActivity {
         if (TextUtils.isEmpty(password)) {
             passLayout.setError(getString(R.string.error_password));
             passLayout.requestFocus();
+            passText.setError("Campo obligatorio");
             Toast.makeText(Login.this, "Introduzca contraseña.", Toast.LENGTH_SHORT).show();
             return false;
         } else if (password.length() < 5) {
             passLayout.setError(getString(R.string.error_short_password));
             passLayout.requestFocus();
-            Toast.makeText(Login.this, "La contraseña debe tener al menos " + 5 + " caracteres.", Toast.LENGTH_SHORT).show();
+            passText.setError("La contraseña debe tener 6 caracteres mínimo");
+            Toast.makeText(Login.this, "Tamaño contraseña incorrecto.", Toast.LENGTH_SHORT).show();
             return false;
         } else {
             passLayout.setErrorEnabled(false);
@@ -190,6 +193,7 @@ public class Login extends AppCompatActivity {
         } else {
             emailLayout.setError(getString(R.string.error_invalid_email));
             emailLayout.requestFocus();
+            passText.setError("Correo electronico no válido");
             Toast.makeText(Login.this, "Introduzca un correo electrónico válido.", Toast.LENGTH_SHORT).show();
             return false; // El correo electrónico no tiene un formato válido
         }
