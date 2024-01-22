@@ -14,6 +14,10 @@ ToDoList
 
 ![Imagen](imgReadme/image1.png)
 
+![Imagen](imgReadme/image21.png)
+
+![Imagen](imgReadme/image22.png)
+
 1.  Cambiar el icono genérico de la app por otro de tu elección.
 
 ![Imagen](imgReadme/image2.png)
