@@ -1,6 +1,6 @@
 # Programación Multimedia y Dispositivos móviles
 
-## AE-1. Tarea grupal. Mejora de aplicación ToDo List.
+## AE-1. Mejora de aplicación ToDo List.
 
 Realizada por:
 
