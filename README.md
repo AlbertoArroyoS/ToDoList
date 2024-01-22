@@ -6,6 +6,8 @@ Realizada por:
 
 ALBERTO ARROYO SANTOFIMIA
 
+Actividad Realizada en Android Studio.
+
 Nuestro objetivo en esta tarea de equipo es mejorar la aplicación que
 hemos realizado en la unidad 2 TodoList, para ello, haréis lo siguiente
 (Uso de Firebase para el almacenamiento de los datos.):
