@@ -1,16 +1,16 @@
-Programación Multimedia y Dispositivos móviles
+# Programación Multimedia y Dispositivos móviles
 
-AE-1. Tarea grupal. Mejora de aplicación ToDo List.
+## AE-1. Tarea grupal. Mejora de aplicación ToDo List.
 
 Realizada por:
 
-ALBERTO ARROYO SANTOFIMIA
+**ALBERTO ARROYO SANTOFIMIA**
 
 Actividad Realizada en Android Studio.
 
-Nuestro objetivo en esta tarea de equipo es mejorar la aplicación que
+*Nuestro objetivo en esta tarea de equipo es mejorar la aplicación que
 hemos realizado en la unidad 2 TodoList, para ello, haréis lo siguiente
-(Uso de Firebase para el almacenamiento de los datos.):
+(Uso de Firebase para el almacenamiento de los datos.):*
 
 ToDoList
 
